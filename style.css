@@ -1,40 +1,37 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
+    background-color: #f0f0f0;
 }
 
 .container {
     text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1#gameTitle {
-    color: #333;
-    margin-bottom: 15px;
-    min-height: 1.5em; /* Prevent layout shift for messages */
+h1 {
+    color: red;
+    margin-bottom: 20px;
+    visibility: hidden; /* Hidden until game over */
 }
 
-#minesweeperGrid {
+.grid {
     display: grid;
     grid-template-columns: repeat(8, 40px);
     grid-template-rows: repeat(8, 40px);
-    gap: 1px;
     border: 2px solid #333;
     background-color: #bbb;
-    margin: 20px auto;
+    user-select: none;
 }
 
 .cell {
     width: 40px;
     height: 40px;
+    border: 1px solid #777;
     background-color: #ccc;
     display: flex;
     justify-content: center;
@@ -42,45 +39,25 @@ h1#gameTitle {
     font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    border: 1px solid #aaa;
     box-sizing: border-box;
 }
 
 .cell.revealed {
     background-color: #eee;
+    border: 1px solid #aaa;
     cursor: default;
 }
 
 .cell.mine {
-    background-color: #ff6666; /* Red for mines */
+    background-color: red;
     color: white;
 }
 
-.cell.mine-clicked {
-    background-color: #c00000; /* Darker red for the clicked mine */
-}
-
-/* Colors for number of adjacent mines */
-.cell[data-count="1"] { color: blue; }
-.cell[data-count="2"] { color: green; }
-.cell[data-count="3"] { color: red; }
-.cell[data-count="4"] { color: purple; }
-.cell[data-count="5"] { color: maroon; }
-.cell[data-count="6"] { color: teal; }
-.cell[data-count="7"] { color: black; }
-.cell[data-count="8"] { color: gray; }
-
-#resetButton {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-#resetButton:hover {
-    background-color: #0056b3;
-}
+.cell.num-1 { color: blue; }
+.cell.num-2 { color: green; }
+.cell.num-3 { color: red; }
+.cell.num-4 { color: purple; }
+.cell.num-5 { color: maroon; }
+.cell.num-6 { color: turquoise; }
+.cell.num-7 { color: black; }
+.cell.num-8 { color: gray; }
