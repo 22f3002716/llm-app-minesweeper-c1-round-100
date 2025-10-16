@@ -16,77 +16,71 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1#gameTitle {
     color: #333;
+    margin-bottom: 15px;
+    min-height: 1.5em; /* Prevent layout shift for messages */
 }
 
-#game-grid {
+#minesweeperGrid {
     display: grid;
-    grid-template-columns: repeat(8, 30px); /* 8x8 grid */
-    grid-template-rows: repeat(8, 30px);
+    grid-template-columns: repeat(8, 40px);
+    grid-template-rows: repeat(8, 40px);
+    gap: 1px;
     border: 2px solid #333;
+    background-color: #bbb;
     margin: 20px auto;
-    width: fit-content; /* Adjust width to grid content */
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #bbb;
+    width: 40px;
+    height: 40px;
     background-color: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    user-select: none;
-    transition: background-color 0.1s ease;
-}
-
-.cell:hover:not(.revealed):not(.mine-clicked) {
-    background-color: #ddd;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
 }
 
 .cell.revealed {
     background-color: #eee;
     cursor: default;
-    border-color: #999;
 }
 
 .cell.mine {
-    background-color: #ff9999; /* Light red for unclicked mines at game over */
-}
-
-.cell.mine-clicked {
-    background-color: #ff0000; /* Bright red for the clicked mine */
+    background-color: #ff6666; /* Red for mines */
     color: white;
 }
 
-.cell.mine::before {
-    content: '💣'; /* Bomb emoji */
+.cell.mine-clicked {
+    background-color: #c00000; /* Darker red for the clicked mine */
 }
 
-.cell.mine-clicked::before {
-    content: '💥'; /* Explosion emoji */
+/* Colors for number of adjacent mines */
+.cell[data-count="1"] { color: blue; }
+.cell[data-count="2"] { color: green; }
+.cell[data-count="3"] { color: red; }
+.cell[data-count="4"] { color: purple; }
+.cell[data-count="5"] { color: maroon; }
+.cell[data-count="6"] { color: teal; }
+.cell[data-count="7"] { color: black; }
+.cell[data-count="8"] { color: gray; }
+
+#resetButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
-/* Colors for numbers */
-.cell.num-1 { color: blue; }
-.cell.num-2 { color: green; }
-.cell.num-3 { color: red; }
-.cell.num-4 { color: darkblue; }
-.cell.num-5 { color: darkred; }
-.cell.num-6 { color: teal; }
-.cell.num-7 { color: black; }
-.cell.num-8 { color: gray; }
-
-#game-message {
-    color: red;
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-.hidden {
-    display: none;
+#resetButton:hover {
+    background-color: #0056b3;
 }
