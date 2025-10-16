@@ -1,37 +1,30 @@
 # Minesweeper Game
 
-This is a simple 8x8 Minesweeper game implemented as a single-page web application. The objective of the game is to clear a minefield without detonating any mines.
+This is a simple single-page web application that implements an 8x8 Minesweeper game with 10 randomly placed mines.
 
 ## Features
 
-*   **8x8 Grid:** A classic 8x8 game board.
-*   **10 Mines:** Ten randomly placed mines.
-*   **Neighbor Counts:** Cells display the number of adjacent mines.
-*   **Game Over State:** If you click on a mine, the game ends, all mines are revealed, and a "BOOM! Game Over." message is displayed.
-*   **Recursive Reveal:** Clicking an empty cell (with 0 adjacent mines) automatically reveals all its empty neighbors and their numbered neighbors.
-*   **Win Condition:** Win by revealing all non-mine cells.
-*   **Reset Button:** Start a new game at any time.
+*   **8x8 Grid:** A classic Minesweeper grid size.
+*   **10 Mines:** Mines are randomly distributed across the board at the start of each game.
+*   **Cell Revealing:** Click on a cell to reveal its content.
+    *   If the cell contains a number, it indicates how many mines are adjacent to it.
+    *   If the cell is empty (contains '0' adjacent mines), it automatically reveals all adjacent empty cells and their numbered borders.
+*   **Game Over State:** Clicking on a mine immediately ends the game.
+    *   A prominent 'BOOM! Game Over.' message is displayed.
+    *   All mines on the board are revealed visually.
 
-## How to Play
+## How to Run
 
-1.  **Objective:** The goal is to clear the minefield without clicking on any of the 10 hidden mines.
-2.  **Clicking a Cell:**
-    *   If you click a cell that contains a mine, the game is over. All mines will be revealed, and you will see a "BOOM! Game Over." message.
-    *   If you click a cell that does not contain a mine, it will reveal a number. This number indicates how many mines are in the eight surrounding cells (horizontally, vertically, and diagonally).
-    *   If you click a cell that has `0` adjacent mines, it will automatically clear all its adjacent cells until it reaches cells with numbers.
-3.  **Winning:** You win the game by revealing all cells that do not contain mines.
-4.  **Reset:** Click the "Reset Game" button to start a brand new game at any point.
+1.  **Save the files:** Save `index.html`, `style.css`, `script.js`, `README.md`, and `LICENSE` into a single directory on your computer.
+2.  **Open in Browser:** Open the `index.html` file using any modern web browser (e.g., Chrome, Firefox, Safari, Edge).
+3.  **Play:** The game will start automatically. Simply click on cells to begin playing.
 
-## How to Run Locally
+## Controls
 
-1.  **Save Files:** Save `index.html`, `style.css`, and `script.js` into the same directory on your computer.
-2.  **Open `index.html`:** Open the `index.html` file using your preferred web browser (e.g., Chrome, Firefox, Safari).
-3.  **Play:** The game will load, and you can start playing immediately.
+*   **Left-click:** Reveals the content of the clicked cell.
 
-## File Structure
+## Game Over
 
-*   `index.html`: The main HTML file that structures the web page.
-*   `style.css`: Provides the styling for the game board, cells, and messages.
-*   `script.js`: Contains all the JavaScript logic for game setup, mine placement, cell interactions, and game state management.
-*   `README.md`: This file, providing information about the project.
-*   `LICENSE`: The MIT License under which this project is distributed.
+The game ends immediately if you click a cell containing a mine. The message "BOOM! Game Over." will appear, and all mine locations will be shown on the grid.
+
+Enjoy playing!
